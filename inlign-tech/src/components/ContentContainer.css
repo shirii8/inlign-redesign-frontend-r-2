@@ -1,0 +1,47 @@
+.content-container {
+  position: relative;
+  z-index: 10;
+  background: rgba(8, 37, 43, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 1rem 0;
+  border: 1px solid rgba(244, 166, 14, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(244, 166, 14, 0.1);
+}
+
+.hero-variant {
+  background: rgba(8, 37, 43, 0.85);
+  border: 1px solid rgba(244, 166, 14, 0.3);
+  box-shadow: 
+    0 16px 64px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(244, 166, 14, 0.1);
+}
+
+.section-variant {
+  background: rgba(10, 44, 53, 0.9);
+  border: 1px solid rgba(34, 115, 106, 0.3);
+}
+
+.card-variant {
+  background: rgba(10, 44, 53, 0.95);
+  border: 1px solid rgba(244, 166, 14, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card-variant:hover {
+  border-color: rgba(244, 166, 14, 0.4);
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(244, 166, 14, 0.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    padding: 1.5rem;
+    margin: 0.5rem 0;
+  }
+}

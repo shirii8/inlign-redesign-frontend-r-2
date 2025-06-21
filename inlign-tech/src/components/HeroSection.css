@@ -1,0 +1,683 @@
+.liquid-hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  overflow: hidden;
+}
+
+.liquid-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.liquid-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.liquid-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  background: rgba(8, 37, 43, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(244, 166, 14, 0.1);
+}
+
+.liquid-hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.liquid-accent-text {
+  color: #f4a60e;
+  font-weight: 900;
+}
+
+.liquid-hero-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.liquid-cta-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.liquid-button {
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid;
+  background: transparent;
+}
+
+.liquid-button.primary {
+  border-color: #f4a60e;
+  color: #f4a60e;
+}
+
+.liquid-button.primary:hover {
+  background: #f4a60e;
+  color: #08252b;
+}
+
+.liquid-button.secondary {
+  border-color: #22736a;
+  color: #22736a;
+}
+
+.liquid-button.secondary:hover {
+  background: #22736a;
+  color: #ffffff;
+}
+
+/* HORIZONTAL STATS - GUARANTEED */
+.liquid-stats-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.liquid-stat-item {
+  background: rgba(8, 37, 43, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(244, 166, 14, 0.2);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.liquid-stat-item h3 {
+  font-size: 2.5rem;
+  color: #f4a60e;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  line-height: 1;
+}
+
+.liquid-stat-item p {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive - Stack on Mobile */
+@media (max-width: 768px) {
+  .liquid-stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .liquid-cta-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .liquid-stats-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+
+.liquid-stats-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.liquid-stat-item.techy {
+  position: relative;
+  background: rgba(18, 32, 39, 0.7);
+  border-radius: 18px;
+  border: 1.5px solid rgba(68,190,177,0.16);
+  box-shadow: 0 2px 18px 0 #44beb133, 0 1.5px 0 0 #f4a60e22;
+  padding: 2.2rem 1.5rem;
+  text-align: center;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 
+    box-shadow 0.4s cubic-bezier(.4,0,.2,1),
+    border-color 0.35s cubic-bezier(.4,0,.2,1),
+    transform 0.3s cubic-bezier(.4,0,.2,1);
+  backdrop-filter: blur(14px);
+  z-index: 1;
+  perspective: 800px;
+}
+
+.stat-glass-bg {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(68,190,177,0.11) 0%, rgba(244,166,14,0.10) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stat-neon-border {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  border: 2px solid transparent;
+  background: linear-gradient(90deg, #44beb1, #f4a60e, #44beb1) border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.28;
+  z-index: 2;
+  transition: opacity 0.4s;
+}
+
+.liquid-stat-item.techy:hover .stat-neon-border {
+  opacity: 0.65;
+}
+
+.stat-shine {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent 0%, #fff8 40%, #fff2 60%, transparent 100%);
+  filter: blur(2px);
+  z-index: 3;
+  border-radius: 18px;
+  transition: left 0.8s cubic-bezier(.4,0,.2,1);
+}
+
+.liquid-stat-item.techy h3 {
+  font-size: 2.6rem;
+  color: #f4a60e;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  z-index: 4;
+  text-shadow: 0 2px 12px #f4a60e33, 0 1.5px 0 #44beb133;
+  background: linear-gradient(90deg, #f4a60e 60%, #44beb1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.liquid-stat-item.techy p {
+  color: #e6e6e6;
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  z-index: 4;
+}
+
+
+
+@media (max-width: 900px) {
+  .liquid-stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .liquid-stats-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .liquid-stat-item.techy {
+    padding: 1.4rem 1rem;
+  }
+  .liquid-stat-item.techy h3 {
+    font-size: 2rem;
+  }
+}
+/* Add these enhanced styles to your HeroSection.css */
+
+/* Character animation styles */
+.char {
+  display: inline-block;
+  transform-origin: center bottom;
+}
+
+.liquid-accent-text {
+  display: inline-block;
+  background: linear-gradient(45deg, #f4a60e, #ffd166, #f4a60e);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Subtitle enhancements */
+.subtitle-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.sentence {
+  display: inline;
+  transition: color 0.3s ease;
+}
+
+/* Enhanced button styles */
+.liquid-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.liquid-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.liquid-button:hover::before {
+  left: 100%;
+}
+
+.button-text {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.button-icon {
+  transition: transform 0.2s ease;
+}
+
+/* Stats hover effects */
+.liquid-stat-item h3 {
+  transition: text-shadow 0.2s ease;
+}
+
+.liquid-stat-item p {
+  transition: color 0.2s ease;
+}
+
+/* Responsive text animations */
+@media (max-width: 768px) {
+  .char {
+    animation-duration: 0.3s;
+  }
+  
+  .liquid-accent-text {
+    animation-duration: 2s;
+  }
+}
+
+
+/* HeroSection.css - Add these styles to your existing CSS */
+
+.curved-paths-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.curved-paths {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.animated-path {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.path-1 {
+  animation: pathGlow1 4s ease-in-out infinite;
+}
+
+.path-2 {
+  animation: pathGlow2 6s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.path-3 {
+  animation: pathGlow3 8s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+@keyframes pathGlow1 {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes pathGlow2 {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes pathGlow3 {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.floating-orbs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-orb {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(244, 166, 14, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+}
+
+.particle-network {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.network-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #f4a60e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(244, 166, 14, 0.8);
+}
+
+.brand-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.with-text {
+  color: #a0a0a0;
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.liquid-brand {
+  background: linear-gradient(45deg, #f4a60e, #ffd166, #f4a60e);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease-in-out infinite;
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.stat-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(244, 166, 14, 0.1) 0%, transparent 70%);
+  animation: statPulse 3s ease-in-out infinite;
+  z-index: -1;
+  border-radius: 16px;
+}
+
+@keyframes statPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .floating-orb {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .with-text {
+    font-size: 1.4rem;
+  }
+  
+  .liquid-brand {
+    font-size: 2.2rem;
+  }
+}
+
+/* Add these new styles */
+.tech-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.tech-grid-item {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: rgba(244, 166, 14, 0.15);
+  border-radius: 50%;
+  transform: scale(0.5);
+}
+
+.animated-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, 
+    rgba(34, 115, 106, 0.1) 0%, 
+    rgba(244, 166, 14, 0.05) 50%, 
+    rgba(34, 115, 106, 0.1) 100%);
+  animation: gradientMove 15s ease infinite;
+  pointer-events: none;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.liquid-brand {
+  position: relative;
+  display: inline-block;
+}
+
+.liquid-brand::before,
+.liquid-brand::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.liquid-brand::before {
+  color: #f4a60e;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.liquid-brand::after {
+  color: #22736a;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+.liquid-stat-item p {
+  border-bottom: 0px solid transparent;
+  transition: border-bottom 0.3s ease;
+}
+/* Enhanced styles */
+.tech-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tech-grid-item {
+  position: absolute;
+  background: rgba(244, 166, 14, 0.2);
+  border-radius: 50%;
+  transform: scale(0.5);
+  transition: all 0.3s ease;
+}
+
+.animated-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, 
+    rgba(34, 115, 106, 0.15) 0%, 
+    rgba(244, 166, 14, 0.1) 50%, 
+    rgba(34, 115, 106, 0.15) 100%);
+  animation: gradientMove 12s ease infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.liquid-brand {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.title-word {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.liquid-stat-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(26, 32, 44, 0.7);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(244, 166, 14, 0.2);
+  transition: all 0.3s ease;
+}
+
+.stat-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(244, 166, 14, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.liquid-stat-item:hover .stat-glow {
+  opacity: 1;
+}
+
+.liquid-stat-item h3 {
+  font-size: 2.2rem;
+  transition: all 0.3s ease;
+}
+
+.liquid-stat-item p {
+  padding-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Existing styles remain with increased animation intensities */

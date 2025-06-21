@@ -1,0 +1,222 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(8, 37, 43, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #22736a;
+  z-index: 100;
+  transition: background 0.3s;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f4a60e;
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-logo-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.accent {
+  color: #f4a60e;
+}
+
+/* === Rotating logo halo === */
+.nav-logo-halo {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(8, 37, 43, 0.42);
+  box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+}
+
+.nav-logo-img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35)) drop-shadow(0 0 12px rgba(244, 166, 14, 0.18));
+  transition: filter 0.2s;
+}
+
+.rotating-circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110px;
+  height: 110px;
+  transform: translate(-50%, -50%);
+  animation: rotateText 10s linear infinite;
+  font-size: 0.55rem;
+  font-weight: bold;
+  color: #f4a60e;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.rotating-circle-text span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: 0 55px;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotateText {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* === Menu styles === */
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #f4a60e;
+}
+
+.nav-link::after {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 0;
+  height: 2px;
+  background: #f4a60e;
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* === Mobile menu === */
+.nav-toggle {
+  display: none;
+  color: #f4a60e;
+  background: none;
+  border: none;
+  font-size: 2rem;
+}
+
+@media (max-width: 900px) {
+  .nav-menu {
+    position: absolute;
+    right: 0;
+    top: 70px;
+    flex-direction: column;
+    background: #08252b;
+    width: 100vw;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+.nav-logo-halo {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(8, 37, 43, 0.42);
+  box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(4px);
+  overflow: visible;
+}
+
+.nav-logo-img {
+  position: absolute;
+  height: 42px;
+  width: 42px;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35)) drop-shadow(0 0 12px rgba(244, 166, 14, 0.18));
+}
+
+/* Rotating text around the logo */
+.rotating-circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110px;
+  height: 110px;
+  transform: translate(-50%, -50%);
+  animation: rotateText 10s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.rotating-circle-text span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
+  font-size: 0.55rem;
+  font-weight: bold;
+  color: #f4a60e;
+  letter-spacing: 1px;
+  white-space: pre;
+}
+
+@keyframes rotateText {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

@@ -1,0 +1,18 @@
+.confetti-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.confetti-piece {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  pointer-events: none;
+  will-change: transform, opacity;
+  box-shadow: 0 0 8px rgba(244,166,14,0.15);
+  transition: opacity 0.2s;
+}

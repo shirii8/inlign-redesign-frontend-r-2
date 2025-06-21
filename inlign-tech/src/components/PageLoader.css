@@ -1,0 +1,291 @@
+/* PageLoader.css */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #08252b 0%, #0a3940 50%, #08252b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  overflow: hidden;
+}
+
+/* Liquid background waves */
+.liquid-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.liquid-wave {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(244, 166, 14, 0.1) 0%, transparent 70%);
+  border-radius: 45%;
+  animation: liquidFlow 20s ease-in-out infinite;
+}
+
+.wave-1 {
+  top: -50%;
+  left: -50%;
+  animation-delay: 0s;
+}
+
+.wave-2 {
+  top: -60%;
+  right: -50%;
+  animation-delay: -7s;
+  animation-duration: 25s;
+}
+
+.wave-3 {
+  bottom: -50%;
+  left: -60%;
+  animation-delay: -14s;
+  animation-duration: 30s;
+}
+
+@keyframes liquidFlow {
+  0%, 100% { 
+    transform: rotate(0deg) scale(1); 
+    opacity: 0.1;
+  }
+  50% { 
+    transform: rotate(180deg) scale(1.1); 
+    opacity: 0.2;
+  }
+}
+
+/* Glass morphism container */
+.glass-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 166, 14, 0.2);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, 0.2),
+    inset 0 2px 16px rgba(255, 255, 255, 0.1);
+  min-width: 400px;
+  text-align: center;
+  transform-style: preserve-3d;
+}
+
+.glass-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(244, 166, 14, 0.05), transparent);
+  border-radius: 24px;
+  opacity: 0.8;
+  animation: glassShimmer 3s ease-in-out infinite;
+}
+
+@keyframes glassShimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* Logo section */
+.loader-logo-section {
+  margin-bottom: 2.5rem;
+}
+
+.logo-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.logo-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(244, 166, 14, 0.1);
+  padding: 8px;
+  border: 2px solid rgba(244, 166, 14, 0.3);
+  transition: filter 0.3s ease;
+}
+
+.logo-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(circle, rgba(244, 166, 14, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(20px);
+  animation: logoGlow 2s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.brand-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.logo-text {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.logo-accent {
+  color: #f4a60e;
+  text-shadow: 0 0 15px rgba(244, 166, 14, 0.5);
+}
+
+/* Progress section */
+.progress-section {
+  margin-bottom: 2rem;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.progress-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f4a60e 0%, #ffd166 50%, #f4a60e 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(244, 166, 14, 0.5);
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: progressShine 2s infinite;
+}
+
+@keyframes progressShine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.progress-glow {
+  position: absolute;
+  top: -3px;
+  width: 12px;
+  height: 12px;
+  background: #f4a60e;
+  border-radius: 50%;
+  filter: blur(4px);
+  transform: translateX(-50%);
+  transition: left 0.3s ease;
+}
+
+.progress-percentage {
+  color: #f4a60e;
+  font-weight: 600;
+  font-size: 1.1rem;
+  min-width: 45px;
+  text-shadow: 0 0 8px rgba(244, 166, 14, 0.3);
+}
+
+.loading-text {
+  color: #a0a0a0;
+  font-size: 0.95rem;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+/* Liquid particles */
+.liquid-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.liquid-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  bottom: 10%;
+  filter: blur(1px);
+  box-shadow: 0 0 8px rgba(244, 166, 14, 0.5);
+}
+
+/* Tech grid background */
+.tech-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 2px;
+  padding: 2rem;
+  pointer-events: none;
+}
+
+.grid-dot {
+  width: 2px;
+  height: 2px;
+  background: rgba(244, 166, 14, 0.2);
+  border-radius: 50%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .glass-container {
+    margin: 1rem;
+    padding: 2rem 1.5rem;
+    min-width: 300px;
+  }
+  
+  .logo-image {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .brand-text {
+    font-size: 1.4rem;
+  }
+}

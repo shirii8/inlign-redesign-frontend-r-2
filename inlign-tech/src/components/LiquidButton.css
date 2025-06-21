@@ -1,0 +1,143 @@
+.liquid-button {
+  position: relative;
+  border: 2px solid #f4a60e;
+  background: transparent;
+  color: #f4a60e;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  outline: none;
+  z-index: 1;
+}
+
+.liquid-button.medium {
+  padding: 12px 32px;
+  font-size: 1rem;
+}
+
+.liquid-button.large {
+  padding: 16px 40px;
+  font-size: 1.1rem;
+}
+
+.liquid-button.small {
+  padding: 8px 24px;
+  font-size: 0.9rem;
+}
+
+.liquid-button.primary {
+  border-color: #f4a60e;
+  color: #f4a60e;
+}
+
+.liquid-button.secondary {
+  border-color: #22736a;
+  color: #22736a;
+}
+
+.button-text {
+  position: relative;
+  z-index: 3;
+  transition: color 0.3s ease;
+}
+
+.liquid-fill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, #f4a60e, #e09b00);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  z-index: 1;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.liquid-button:hover .liquid-fill {
+  width: 300%;
+  height: 300%;
+}
+
+.liquid-button:hover .button-text {
+  color: #08252b;
+}
+
+.liquid-ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(244, 166, 14, 0.6), transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.liquid-waves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.wave {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(244, 166, 14, 0.1) 50%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: liquidWave 4s ease-in-out infinite;
+}
+
+.wave-1 {
+  animation-delay: 0s;
+  opacity: 0.3;
+}
+
+.wave-2 {
+  animation-delay: 1s;
+  opacity: 0.4;
+}
+
+.wave-3 {
+  animation-delay: 2s;
+  opacity: 0.2;
+}
+
+@keyframes liquidWave {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.8);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(1.2);
+  }
+}
+
+.liquid-button:active {
+  transform: scale(0.95);
+}
+
+.liquid-button:hover {
+  box-shadow: 0 8px 25px rgba(244, 166, 14, 0.3);
+}
+
+.liquid-button.secondary .liquid-fill {
+  background: radial-gradient(circle, #22736a, #1a5d56);
+}
+
+.liquid-button.secondary:hover .button-text {
+  color: #ffffff;
+}

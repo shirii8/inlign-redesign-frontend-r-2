@@ -1,0 +1,344 @@
+/* styles/globals.css */
+/* Fix navbar overlap issues */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  background: var(--background);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+/* Main content wrapper to prevent navbar overlap */
+.main-content {
+  padding-top: 80px; /* Height of fixed navbar */
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Page-specific padding adjustments */
+.home-page,
+.about-page,
+.programs-page,
+.verify-certificate-page,
+.contact-page {
+  padding-top: 80px;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Container improvements */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Ensure fixed navbar stays on top */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+  background: rgba(8, 37, 43, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(244, 166, 14, 0.2);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .main-content,
+  .home-page,
+  .about-page,
+  .programs-page,
+  .verify-certificate-page,
+  .contact-page {
+    padding-top: 70px;
+  }
+  
+  .navbar {
+    height: 70px;
+  }
+}
+
+
+:root {
+  --primary-dark: #08252b;
+  --primary-medium: #22736a;
+  --accent-gold: #f4a60e;
+  --text-light: #ffffff;
+  --text-gray: #a0a0a0;
+  --background: #0a1a1f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--background);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+/* Add these to existing globals.css */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hover glow effect */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(244, 166, 14, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Responsive animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Enhanced scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08252b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #22736a, #f4a60e);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #f4a60e, #22736a);
+}
+/* Add to ProgramsSection.css, TestimonialsSection.css, etc. */
+.program-card,
+.testimonial-card,
+.feature-card,
+.value-card {
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.program-card::before,
+.testimonial-card::before,
+.feature-card::before,
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #f4a60e, #22736a, #f4a60e);
+  background-size: 200% 200%;
+  border-radius: inherit;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  animation: cardPulse 3s ease-in-out infinite;
+}
+
+.program-card:hover::before,
+.testimonial-card:hover::before,
+.feature-card:hover::before,
+.value-card:hover::before {
+  opacity: 0.6;
+  filter: blur(8px);
+}
+
+.program-card:hover,
+.testimonial-card:hover,
+.feature-card:hover,
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 15px 35px rgba(244, 166, 14, 0.3),
+    0 0 25px rgba(244, 166, 14, 0.15);
+}
+
+@keyframes cardPulse {
+  0%, 100% { 
+    background-position: 0% 50%;
+  }
+  50% { 
+    background-position: 100% 50%;
+  }
+}
+
+/* Performance optimizations for liquid animations */
+.liquid-button,
+.liquid-fill,
+.liquid-ripple,
+.wave,
+.bubble,
+.droplet {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .liquid-button,
+  .wave,
+  .bubble,
+  .droplet,
+  .liquid-fill {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Add to your global CSS */
+.liquid-effect-element {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.trusted-by-section {
+  width: 100%;
+  background: #0a2c35;
+  padding: 2.5rem 0 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+.trusted-by-section h3 {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
+}
+.trusted-logos {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.trusted-logo {
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 2px 16px rgba(34,115,106,0.08);
+  max-height: 80px;
+  max-width: 160px;
+  object-fit: contain;
+  transition: box-shadow 0.2s;
+}
+.trusted-logo:hover {
+  box-shadow: 0 4px 32px rgba(244,166,14,0.14);
+}
+
+
+.liquid-hero-section {
+  background: linear-gradient(120deg, rgba(8,37,43,0.7) 60%, rgba(34,115,106,0.3) 100%);
+}
+
+.liquid-stats-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2.5rem auto 0 auto;
+  padding: 0 2vw;
+}
+
+.liquid-stat-item {
+  flex: 1 1 0;
+  min-width: 220px;
+  max-width: 260px;
+  background: rgba(8, 37, 43, 0.65);
+  border-radius: 18px;
+  padding: 2.5rem 1.2rem 2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.liquid-stat-item h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  color: #f4a60e;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.liquid-stat-item p {
+  margin: 0;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .liquid-stats-container {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: stretch;
+  }
+  .liquid-stat-item {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+.liquid-card {
+  background: rgba(10, 57, 64, 0.8);
+  border: 1px solid rgba(244, 166, 14, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.liquid-button.primary {
+  background: #0a3940;
+  border: 2px solid #f4a60e;
+  color: #f4a60e;
+}
+
+.liquid-scroll-container {
+  overflow: visible;
+}

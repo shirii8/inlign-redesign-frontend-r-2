@@ -1,0 +1,44 @@
+.enhanced-cursor {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(244, 166, 14, 0.6);
+  border-radius: 50%;
+  background: rgba(244, 166, 14, 0.1);
+  backdrop-filter: blur(5px);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  opacity: 0.8; /* More prominent by default */
+  transition: opacity 0.2s ease;
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #f4a60e;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(244, 166, 14, 0.5);
+}
+
+/* Hide on mobile devices */
+@media (max-width: 768px) {
+  .enhanced-cursor,
+  .cursor-dot {
+    display: none;
+  }
+}
+
+/* Hide when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .enhanced-cursor,
+  .cursor-dot {
+    display: none;
+  }
+}

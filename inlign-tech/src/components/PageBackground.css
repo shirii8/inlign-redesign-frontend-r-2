@@ -1,0 +1,196 @@
+.page-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(135deg, #08252b 0%, #0a2c35 50%, #08252b 100%);
+}
+
+.gradient-base {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.floating-orbs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-orb {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.6;
+  animation: float 8s ease-in-out infinite;
+}
+
+.tech-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+}
+
+.grid-svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+}
+
+.data-streams {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.data-stream {
+  position: absolute;
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #f4a60e60, transparent);
+  animation: streamMove 8s linear infinite;
+}
+
+.circuit-network {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+}
+
+.circuit-path {
+  stroke-width: 1;
+  stroke: #f4a60e;
+  fill: none;
+  stroke-dasharray: 5,5;
+  animation: dashMove 4s linear infinite;
+}
+
+.circuit-node {
+  fill: #f4a60e;
+  animation: nodePulse 2s ease-in-out infinite;
+}
+
+.geometric-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.shape {
+  position: absolute;
+  border: 2px solid rgba(244, 166, 14, 0.4);
+}
+
+.hexagon {
+  width: 80px;
+  height: 80px;
+  top: 15%;
+  right: 20%;
+  clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+  border: 2px solid rgba(244, 166, 14, 0.6);
+  background: rgba(244, 166, 14, 0.1);
+}
+
+.triangle {
+  bottom: 25%;
+  left: 15%;
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 70px solid rgba(244, 166, 14, 0.4);
+  border-radius: 4px;
+}
+
+/* Page Variants */
+.page-background.about {
+  background: linear-gradient(135deg, #08252b 0%, #0a2c35 50%, #08252b 100%);
+}
+
+.page-background.programs {
+  background: linear-gradient(135deg, #0a2c35 0%, #08252b 50%, #0a2c35 100%);
+}
+
+.page-background.default {
+  background: linear-gradient(135deg, #08252b 0%, #0a2c35 50%, #08252b 100%);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) scale(1); 
+    opacity: 0.4;
+  }
+  50% { 
+    transform: translateY(-30px) scale(1.1); 
+    opacity: 0.8;
+  }
+}
+
+@keyframes streamMove {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+
+@keyframes dashMove {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -20; }
+}
+
+@keyframes nodePulse {
+  0%, 100% { 
+    opacity: 0.6; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.5); 
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .bg-orb {
+    width: 150px;
+    height: 150px;
+    filter: blur(30px);
+  }
+  
+  .hexagon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .triangle {
+    border-left-width: 25px;
+    border-right-width: 25px;
+    border-bottom-width: 45px;
+  }
+  
+  .data-stream {
+    width: 150px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .bg-orb,
+  .data-stream,
+  .circuit-path,
+  .circuit-node,
+  .hexagon,
+  .triangle {
+    animation: none;
+  }
+}

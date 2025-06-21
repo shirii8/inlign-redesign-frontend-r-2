@@ -1,0 +1,154 @@
+.fluid-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #08252b 0%, #0a2c35 50%, #08252b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.loader-container {
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.liquid-container {
+  width: 200px;
+  height: 300px;
+  margin: 0 auto 2rem;
+  position: relative;
+  border: 3px solid #f4a60e;
+  border-radius: 20px 20px 40px 40px;
+  overflow: hidden;
+  background: rgba(10, 44, 53, 0.3);
+}
+
+.liquid-fill-loader {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(
+    180deg,
+    rgba(244, 166, 14, 0.9) 0%,
+    rgba(244, 166, 14, 0.7) 50%,
+    rgba(34, 115, 106, 0.8) 100%
+  );
+  transition: height 0.1s ease;
+}
+
+.liquid-surface {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  overflow: hidden;
+}
+
+.surface-wave {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(ellipse, rgba(244, 166, 14, 0.8), transparent);
+  border-radius: 50%;
+  animation: surfaceWave 3s ease-in-out infinite;
+}
+
+.bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent);
+  border-radius: 50%;
+  animation: bubbleRise 3s ease-in-out infinite;
+}
+
+.loader-text {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.loader-text span {
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.loader-text .accent {
+  color: #f4a60e;
+  text-shadow: 0 0 20px rgba(244, 166, 14, 0.5);
+}
+
+.progress-indicator {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #f4a60e, #22736a);
+  border-radius: 2px;
+  animation: progressFill 3s ease-in-out forwards;
+}
+
+@keyframes surfaceWave {
+  0%, 100% {
+    transform: translateY(0) scaleX(1);
+  }
+  50% {
+    transform: translateY(-5px) scaleX(1.2);
+  }
+}
+
+@keyframes bubbleRise {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(-20px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes progressFill {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .liquid-container {
+    width: 150px;
+    height: 225px;
+  }
+  
+  .loader-text {
+    font-size: 2rem;
+  }
+}
